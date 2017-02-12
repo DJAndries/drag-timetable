@@ -1,0 +1,16 @@
+.dragtimetable-table {
+  border-collapse: collapse;
+}
+.dragtimetable-table td {
+  border: 1px solid #ddd;
+}
+.dragtimetable-table th {
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid #ddd;
+  font-style: bold;
+}
+
+.dragtimetable-headertext {
+  margin: 10px;
+}
