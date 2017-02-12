@@ -1,0 +1,23 @@
+{
+  "name": "drag-timetable",
+  "version": "1.0.0",
+  "description": "Simple, customizable draggable timetable. Dragula/Bootstrap based.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DJAndries/drag-timetable.git"
+  },
+  "keywords": [
+    "timetable",
+    "schedule"
+  ],
+  "author": "Darnell Andries",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DJAndries/drag-timetable/issues"
+  },
+  "homepage": "https://github.com/DJAndries/drag-timetable#readme"
+}
