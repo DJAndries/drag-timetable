@@ -1,0 +1,8 @@
+branches:
+  only:
+  - develop
+before_install:
+  - npm install -g gulp
+install:
+  - npm install
+script: gulp
