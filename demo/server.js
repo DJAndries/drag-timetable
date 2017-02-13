@@ -11,4 +11,4 @@ var server = http.createServer(function onRequest (req, res) {
 });
 
 // Listen
-server.listen(8080);
+server.listen(80);
