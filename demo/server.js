@@ -11,4 +11,4 @@ var server = http.createServer(function onRequest (req, res) {
 });
 
 // Listen
-server.listen(80);
+server.listen(process.env.PORT || 8080);
