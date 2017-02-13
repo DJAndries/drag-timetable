@@ -26,4 +26,9 @@ gulp.task('build-demo', function() {
     .pipe(gulp.dest("demo"));
 });
 
-gulp.task("default", gulpSequence('bundle', 'build-demo'));
+gulp.task('copy-css', function() {
+  return gulp.src('./style.css')
+    .pipe(gulp.dest('./demo'));
+});
+
+gulp.task("default", gulpSequence('bundle', 'build-demo', 'copy-css'));

@@ -11,7 +11,3 @@ before_install:
 install:
   - npm install
 script: gulp
-addons:
-  artifacts:
-    paths:
-      ./demo/index.build.js

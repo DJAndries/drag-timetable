@@ -38,3 +38,4 @@ jspm_packages
 
 dist/*
 demo/index.build.js
+demo/style.css
