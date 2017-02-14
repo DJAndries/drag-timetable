@@ -37,7 +37,7 @@ gulp.task('watch', function() {
   return gulp.watch('**/*.js', ['build']);
 });
 
-gulp.task('default', gulpSequence('build', 'watch'));
+gulp.task('default', gulpSequence('build'));
 
 gulp.task('watch', function() {
   return gulp.watch('./src/*.js', function() {
