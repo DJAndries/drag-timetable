@@ -2,13 +2,11 @@ import TimetableCreator from './create.js';
 
 class DragTimetable {
   create(container, options) {
-    console.log('ya');
     if (!options || !container) {
       throw 'No options or container';
     }
 
     const optionsObj = {};
-    console.log('ya2');
 
     //horizontal or vertical
     optionsObj.orientation = 'vertical';
@@ -57,9 +55,9 @@ class DragTimetable {
       optionsObj.taskAreaSize = options.taskAreaSize;
      }
 
-    optionsObj.hourAreaSize = '200px';
-    if (options.hourAreaSize) {
-      optionsObj.hourAreaSize = options.hourAreaSize;
+    optionsObj.quarterHourAreaSize = '30px';
+    if (options.quarterHourAreaSize) {
+      optionsObj.quarterHourAreaSize = options.quarterHourAreaSize;
     }
 
     optionsObj.dragulaBag = 'task-bag';
@@ -67,7 +65,10 @@ class DragTimetable {
       optionsObj.dragulaBag = options.dragulaBag;
     }
 
-    console.log('yo');
+    optionsObj.is24Clock = false;
+    if (options.is24Clock) {
+      optionsObj.is24Clock = options.is24Clock;
+    }
 
     return TimetableCreator.create(container, optionsObj);
   }

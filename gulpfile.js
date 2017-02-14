@@ -31,4 +31,17 @@ gulp.task('copy-css', function() {
     .pipe(gulp.dest('./demo'));
 });
 
-gulp.task("default", gulpSequence('bundle', 'build-demo', 'copy-css'));
+gulp.task('build', gulpSequence('bundle', 'build-demo', 'copy-css'));
+
+gulp.task('watch', function() {
+  return gulp.watch('**/*.js', ['build']);
+});
+
+gulp.task('default', gulpSequence('build', 'watch'));
+
+gulp.task('watch', function() {
+  return gulp.watch('./src/*.js', function() {
+    gulpSequence('bundle', 'build-demo', 'copy-css')();
+  });
+  return gulp.watch('./style.css', ['copy-css']);
+});
