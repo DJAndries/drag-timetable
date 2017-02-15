@@ -1,7 +1,7 @@
 {
   "name": "drag-timetable",
   "version": "1.0.0",
-  "description": "Simple, customizable draggable timetable. Dragula/Bootstrap based.",
+  "description": "Simple, customizable draggable timetable.",
   "main": "dist/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

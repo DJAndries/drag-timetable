@@ -1,5 +1,5 @@
 # drag-timetable
-[![Build Status](https://travis-ci.com/DJAndries/drag-timetable.svg?token=RQi4RZxqsycNL6ZXWJyR&branch=master)](https://travis-ci.com/DJAndries/drag-timetable)
+[![Build Status](https://travis-ci.org/DJAndries/drag-timetable.svg?branch=master)](https://travis-ci.org/DJAndries/drag-timetable) [![npm version](https://badge.fury.io/js/drag-timetable.svg)](https://badge.fury.io/js/drag-timetable)
 
 Simple, customizable & draggable timetable.
 

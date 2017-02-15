@@ -1,13 +1,21 @@
 language: node_js
 node_js:
-  - "6.1"
+- '6.1'
 notifications:
   email: false
 branches:
   only:
   - master
 before_install:
-  - npm install -g gulp
+- npm install -g gulp
 install:
-  - npm install
+- npm install
 script: gulp
+deploy:
+  provider: npm
+  email: darnellandries7@gmail.com
+  api_key:
+    secure: g3pPv7I6lm9ddKX+ybAYSJKsQRp2zaK4nZ6Hgf67tq6mzEvOWE1gFbFzYWmqTanod9ytv5tDZnM2nYp98Trbl+Ql20LClsR7SNCjFMLZ+kUAUYCMi8hb20wzgqcUT1kEAiYBHMroYzwWCvqe0nUnPnCUV9YqUiemXTDKtZw7iM1OCMHQ8do/4cIwAiodQZcA7Feyp+61dtZ8umJnQdEs5BGQg5rkn0lKENsJl1T+3YU0CV3a3Ib8Vjv5K4yUpBnBvDVR3zj3nu9833GrT05mA6S64c2Mtujbyp1CeSUp6e5jkRuTs1N2lxqT7tGaA7zR59XJtsDlF5sB+j0YilH5oggZf6fmZaP461FJBpuAOqAROdJhhGYiQMPGOZNiNw0PQRr3H9MgDtL2w8NLJRUZWXqOxrYPYYj9OlNrv8x9YIPgiPYyRUhNLQb6A5o6YrW3wIKn/M8tvXKAbJQKx8A+4hhb5XWrOETcHHZNU4awz144LC0RIM3IIGkrhmU98xo+O+kYhiU/GF85Rq3niyA05U/p9kGlYvQsnbMJQMzxXPpMrFcpYXY6b5JCCHYR3pSvrad9ladNrOgMcABICaePRkfxSdYtZo6+43pPBqLEUhd2cdDkBkMs1ZhsMqBU1M0ea/MBzIOJSHwz1BnNkyLJ/6OuL5x6CpyT7XqEoLNKEwI=
+  on:
+    tags: true
+    repo: DJAndries/drag-timetable
