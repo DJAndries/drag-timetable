@@ -1,6 +1,6 @@
 {
   "name": "drag-timetable",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple, customizable draggable timetable.",
   "main": "dist/app.js",
   "scripts": {
@@ -17,7 +17,7 @@
     "schedule"
   ],
   "files": [
-    "dist/*",
+    "dist",
     "style.css"
   ],
   "author": "Darnell Andries",
