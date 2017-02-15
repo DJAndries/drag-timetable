@@ -50,12 +50,12 @@ class DragTimetable {
       optionsObj.timeHeaderSize = options.timeHeaderSize;
     }
 
-    optionsObj.taskAreaSize = '300px';
+    optionsObj.taskAreaSize = '150px';
     if (options.taskAreaSize) {
       optionsObj.taskAreaSize = options.taskAreaSize;
      }
 
-    optionsObj.quarterHourAreaSize = '30px';
+    optionsObj.quarterHourAreaSize = '17px';
     if (options.quarterHourAreaSize) {
       optionsObj.quarterHourAreaSize = options.quarterHourAreaSize;
     }

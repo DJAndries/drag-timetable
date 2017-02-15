@@ -40,7 +40,7 @@ gulp.task('watch', function() {
 gulp.task('default', gulpSequence('build'));
 
 gulp.task('watch', function() {
-  return gulp.watch('./src/*.js', function() {
+  gulp.watch('./src/*.js', function() {
     gulpSequence('bundle', 'build-demo', 'copy-css')();
   });
   return gulp.watch('./style.css', ['copy-css']);

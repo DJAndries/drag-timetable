@@ -30,10 +30,15 @@ export default class TimetableInstance {
     if (this.moveCallback) {
       this.moveCallback(this.contextObj.tasks[taskId]);
     }
+    this.contextObj.tasks[taskId].updateTaskUI();
   }
 
   getTask(taskId) {
     return this.contextObj.tasks[taskId];
+  }
+
+  getTasks() {
+    return this.contextObj.tasks;
   }
 
 

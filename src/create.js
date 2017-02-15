@@ -1,6 +1,7 @@
 import TimetableInstance from './instance.js';
 import TimetableSpacer from './spacer.js';
 import TimetableDragManager from './drag.js';
+import TimetableUtil from './util.js';
 
 class TimetableCreator {
   create(container, options) {
@@ -39,44 +40,42 @@ class TimetableCreator {
   _createVerticalTable({orientation, table, hoursArray, quarterHourAreaSize, timeHeaderSize, taskAreaSize}) {
     const taskarea = document.createElement('table');
     taskarea.style.position = 'absolute';
-    taskarea.style.top = '2px';
+    taskarea.style.top = '0px';
     taskarea.style.left = timeHeaderSize;
+    taskarea.style.boxSizing = 'border-box';
+    taskarea.style.marginLeft = '4px';
     taskarea.style.width = taskAreaSize;
-    taskarea.style.borderSpacing = '0px';
-    taskarea.style.border = '0px';
-    // taskarea.style.padding = '4px';
+    taskarea.style.borderSpacing = '1px';
+    taskarea.style.borderCollapse = 'collapse';
+
     for (let hour of hoursArray) {
       const hourBlock = document.createElement('tr');
       const hourHeader = document.createElement('th');
       const hourHeaderText = document.createElement('div');
       const taskCell = document.createElement('td');
-      const taskSplitTable = document.createElement('table');
-
 
       hourHeaderText.innerHTML = hour;
       hourHeader.style.width = timeHeaderSize;
+      hourHeader.style.padding = '0px';
+      hourHeader.setAttribute('rowspan', '4');
       hourHeaderText.setAttribute("class", "dragtimetable-headertext");
       hourHeader.appendChild(hourHeaderText);
       hourBlock.appendChild(hourHeader);
+      taskCell.style.width = taskAreaSize;
+      taskCell.style.padding = '0px';
+      hourBlock.style.height = quarterHourAreaSize;
+      hourBlock.appendChild(taskCell);
+      table.appendChild(hourBlock);
 
-      taskSplitTable.style.margin = '0px';
-      taskSplitTable.style.padding = '0px';
-      taskSplitTable.style.width = taskAreaSize;
-      taskSplitTable.setAttribute('class', 'dragtimetable-table');
-
-      for (let i = 0; i < 4; i++) {
+      for (let i = 0; i < 3; i++) {
         let taskSplitRow = document.createElement('tr');
         let taskSplitCell = document.createElement('td');
+        taskSplitCell.style.padding = '0px';
         taskSplitRow.style.height = quarterHourAreaSize;
         taskSplitRow.appendChild(taskSplitCell);
-        taskSplitTable.appendChild(taskSplitRow);
+        table.appendChild(taskSplitRow);
       }
 
-      taskCell.style.padding = '0px';
-      taskCell.appendChild(taskSplitTable);
-      hourBlock.appendChild(taskCell);
-
-      table.appendChild(hourBlock);
     }
     return taskarea;
   }
@@ -85,14 +84,14 @@ class TimetableCreator {
     const hours = [];
     if (hourStart < hourEnd) {
       for (let i = hourStart; i < hourEnd; i++) {
-        hours.push(this._getHourText(i));
+        hours.push(TimetableUtil.getHourText(i));
       }
     } else {
       for (let i = hourStart; i < 24; i++) {
-        hours.push(this._getHourText(i));
+        hours.push(TimetableUtil.getHourText(i));
       }
       for (let i = 0; i < hourEnd; i++) {
-        hours.push(this._getHourText(i));
+        hours.push(TimetableUtil.getHourText(i));
       }
     }
     return hours;
@@ -109,10 +108,6 @@ class TimetableCreator {
 
   _initDrag(instance) {
     instance.contextObj.dragManager = new TimetableDragManager(instance.quarterHourAreaSize, instance.contextObj.spacer, instance.contextObj.taskAreaSize);
-  }
-
-  _getHourText(i) {
-    return (i == 0) ? "12 AM" : (i >= 12 ? (i == 12 ? 12 : i - 12) + " PM" : i + " AM");
   }
 
 }

@@ -12,30 +12,33 @@
 }
 
 .dragtimetable-headertext {
-  margin: 10px;
+  margin-left: 6px;
+  margin-top: 6px;
 }
 
 .dragtimetable-spacer {
   width: 0px;
+  border: 1px solid transparent;
 }
 
 .dragtimetable-task {
+  display: block;
   width:100%;
   height:100%;
 
   color: #31708f;
   background-color: #d9edf7;
-  border-color: #bce8f1;
-  /*padding: 8px;*/
-  border: 1px solid transparent;
-  border-radius: 8px;
+  border: 1px solid #bce8f1;
+  border-radius: 5px;
+  padding: 6px;
+  box-sizing: border-box;
 
   font-family:Arial, sans-serif;
+  font-size: 0.7em;
 
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select:none;
   user-select:none;
   -o-user-select:none;
-  cursor: grab;
 }

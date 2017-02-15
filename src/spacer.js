@@ -122,6 +122,7 @@ export default class TimetableSpacer {
     for (let i = 0.0 + this.hourStart; i < this.hourEnd; i += 0.25) {
       const rowElement = document.createElement('tr');
       const spaceElement = document.createElement('td');
+      rowElement.style.height = this.unitHeight;
       spaceElement.setAttribute('class', 'dragtimetable-spacer');
       this.spacerIdToElementArray.push(spaceElement);
       this.timeToSpacerMap[i] = this.spacerIdToElementArray.length - 1;
