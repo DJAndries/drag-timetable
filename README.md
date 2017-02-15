@@ -5,7 +5,7 @@ Simple, customizable & draggable timetable.
 
 ## Demo
 
-![alt text](https://github.com/DJAndries/drag-timetable/demo/demo.gif "Demo")
+![alt text](https://github.com/DJAndries/drag-timetable/tree/develop/demo/demo.gif "Demo")
 
 Demo located here: [http://drag-timetable.herokuapp.com](http://drag-timetable.herokuapp.com)
 
