@@ -35,7 +35,7 @@ Embed style.css in your page.
 
 ## Usage
 
-`DragTimetable.create(container, options)`
+#### `DragTimetable.create(container, options)`
 
 Will return a drag context object. All other methods in this README belong to this context object. The container is an element which will become the parent of the timetable. If you wish to create a timetable with the default options, pass in an empty object into the options parameter. Otherwise, you can specify some or all of the possible options in this parameter.
 
@@ -51,11 +51,11 @@ var options = {
 };
 ```
 
-`dragcontext.setMoveCallback(moveCallback)`
+#### `dragcontext.setMoveCallback(moveCallback)`
 
 Sets the callback which is invoked whenever a task is moved. The updated task object will be passed into the callback.
 
-`dragcontext.addTask(task, isAddingToTimetable)`
+#### `dragcontext.addTask(task, isAddingToTimetable)`
 
 Attaches a task to the timetable. If `isAddingToTimetable` is true, the task will be added to the timetable DOM (just set this to true for now).
 
@@ -70,14 +70,14 @@ var task = {
 };
 ```
 
-`dragcontext.removeTask(taskId)`
+#### `dragcontext.removeTask(taskId)`
 
 Removes task from timetable.
 
-`dragcontext.getTask(taskId)`
+#### `dragcontext.getTask(taskId)`
 
 Returns task object from timetable;
 
-`dragcontext.getTasks()`
+#### `dragcontext.getTasks()`
 
 Returns an object of task ids mapped to task objects.
