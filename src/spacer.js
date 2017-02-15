@@ -49,12 +49,10 @@ export default class TimetableSpacer {
       const clientRect = spacerElement.getBoundingClientRect();
       const spacerPosition = this.orientation === 'horizontal' ? clientRect.left : clientRect.top;
       if (i == 0 || mouseOffset > spacerPosition) {
-        console.log ('i: ' + i + 'mouse offset: ' + mouseOffset + ' spacerPosition: ' + spacerPosition);
         let conflictDetected = false;
         let lastSpacerId = 0;
         for (let f = i; f < i + spacerLength; f += 1) {
           const currTime = this.spacerToTimeMap[f];
-          console.log('result: ' + this.timeToSpacerMap[currTime]);
           if (this.timeToSpacerMap[currTime] === undefined || this.timeToSpacerMap[currTime] === null ||
               (this.timeToSpacerMap[currTime] && this.timeToSpacerMap[currTime].taskId
               && this.timeToSpacerMap[currTime].taskId !== selectedTask.id)) {
@@ -63,7 +61,6 @@ export default class TimetableSpacer {
           lastSpacerId = f;
         }
         if (!conflictDetected) {
-          console.log(i+ ' ' + lastSpacerId);
           return {spacerId: i, lastSpacerId};
         }
       }
@@ -78,7 +75,6 @@ export default class TimetableSpacer {
       taskStart = this.spacerToTimeMap[availSlotStart];
       taskEnd = this.spacerToTimeMap[availSlotEnd + 1];
     }
-    console.log('t'+taskStart + ' ' + taskEnd);
 
     for (let i = 0.0 + taskStart; i < taskEnd; i += 0.25) {
       if (this.timeToSpacerMap[i] && this.timeToSpacerMap[i].taskId) {

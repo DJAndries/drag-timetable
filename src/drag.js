@@ -21,7 +21,6 @@ class TimetableDraggable {
     this.currentGhostElement.style.height = this.element.clientHeight + "px";
     document.body.appendChild(this.currentGhostElement);
     this.dragManager.spacer.moveStart(this.taskId);
-    console.log('started dragging');
     return false;
   }
 
@@ -33,7 +32,6 @@ class TimetableDraggable {
         this.currentGhostElement = null;
       }
       this.dragManager.spacer.moveEnd(this.taskId);
-      console.log('stop dragging');
     }
   }
 
@@ -44,7 +42,6 @@ class TimetableDraggable {
         this.currentGhostElement.style.top = (ev.pageY - this.startOffsetY) + "px";
       }
       this.dragManager.spacer.moveUpdate(ev.pageY - this.startOffsetY - window.scrollY, this.taskId);
-      console.log('dragging update');
     }
   }
 }
