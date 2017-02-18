@@ -1,5 +1,5 @@
 class TimetableDraggable {
-  constructor(taskId, element, dragManager) {
+  constructor(taskId, element, dragManager, callbacks) {
     this.taskId = taskId;
     this.element = element;
     this.dragManager = dragManager;
@@ -14,6 +14,7 @@ class TimetableDraggable {
     const boundingRect = ev.currentTarget.getBoundingClientRect();
     this.startOffsetX = ev.clientX - boundingRect.left;
     this.startOffsetY = ev.clientY - boundingRect.top;
+    this.startTouchTime = new Date().getTime();
     this.currentGhostElement = this.element.cloneNode(true);
     this.currentGhostElement.style.position = 'absolute';
     this.currentGhostElement.style.left = (ev.pageX - this.startOffsetX) + "px";
@@ -28,6 +29,9 @@ class TimetableDraggable {
   onTouchEnd(ev) {
     if (this.isDragging) {
       this.isDragging = false;
+      if ((new Date().getTime() - this.startTouchTime) < this.dragManager.clickThreshold) {
+        this.dragManager.callbacks.onTaskClick(this.taskId);
+      }
       if (this.currentGhostElement) {
         this.currentGhostElement.outerHTML = '';
         this.currentGhostElement = null;
@@ -49,9 +53,11 @@ class TimetableDraggable {
 
 export default class TimetableDragManager {
 
-  constructor(unitHeight, spacer) {
+  constructor(unitHeight, spacer, callbacks, clickThreshold) {
+    this.callbacks = callbacks;
     this.unitHeight = unitHeight;
     this.spacer = spacer;
+    this.clickThreshold = clickThreshold;
     this.taskElements = {};
   }
 

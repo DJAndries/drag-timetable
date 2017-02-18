@@ -107,7 +107,10 @@ class TimetableCreator {
   }
 
   _initDrag(instance) {
-    instance.contextObj.dragManager = new TimetableDragManager(instance.quarterHourAreaSize, instance.contextObj.spacer, instance.contextObj.taskAreaSize);
+    const callbacks = {
+      onTaskClick: instance.onTaskClick.bind(instance)
+    };
+    instance.contextObj.dragManager = new TimetableDragManager(instance.quarterHourAreaSize, instance.contextObj.spacer, callbacks, instance.contextObj.clickThreshold);
   }
 
 }

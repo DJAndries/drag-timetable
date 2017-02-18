@@ -9,6 +9,10 @@ export default class TimetableInstance {
     this.moveCallback = moveCallback;
   }
 
+  setClickCallback(clickCallback) {
+    this.clickCallback = clickCallback;
+  }
+
   addTask(task, isAddingToTimetable) {
     const newTask = new TimetableTask(task, this.contextObj.taskAreaSize);
     this.contextObj.tasks[task.id] = newTask;
@@ -31,6 +35,12 @@ export default class TimetableInstance {
       this.moveCallback(this.contextObj.tasks[taskId]);
     }
     this.contextObj.tasks[taskId].updateTaskUI();
+  }
+
+  onTaskClick(taskId) {
+    if (this.clickCallback) {
+      this.clickCallback(this.contextObj.tasks[taskId]);
+    }
   }
 
   getTask(taskId) {

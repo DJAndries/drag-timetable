@@ -60,14 +60,14 @@ class DragTimetable {
       optionsObj.quarterHourAreaSize = options.quarterHourAreaSize;
     }
 
-    optionsObj.dragulaBag = 'task-bag';
-    if (options.dragulaBag) {
-      optionsObj.dragulaBag = options.dragulaBag;
-    }
-
     optionsObj.is24Clock = false;
     if (options.is24Clock) {
       optionsObj.is24Clock = options.is24Clock;
+    }
+
+    optionsObj.clickThreshold = 200;
+    if (options.clickThreshold) {
+      optionsObj.clickThreshold = options.clickThreshold;
     }
 
     return TimetableCreator.create(container, optionsObj);
