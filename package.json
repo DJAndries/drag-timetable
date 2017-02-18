@@ -1,6 +1,6 @@
 {
   "name": "drag-timetable",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Simple, customizable draggable timetable.",
   "main": "dist/app.js",
   "scripts": {
