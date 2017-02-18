@@ -87,6 +87,7 @@ export default class TimetableSpacer {
       const spacerId = this.timeToSpacerMap[i];
       this.timeToSpacerMap[i] = {taskId: task.id, boundary: [this.timeToSpacerMap[taskStart], this.timeToSpacerMap[taskEnd - 0.25]], availableValue: spacerId};
       if (i == taskStart) {
+        this.spacerIdToElementArray[spacerId].style.display = '';
         this.spacerIdToElementArray[spacerId].appendChild(task.element);
         this.spacerIdToElementArray[spacerId].setAttribute('rowspan', '' + (endSpacerId - startSpacerId + 1));
       } else {
@@ -106,7 +107,7 @@ export default class TimetableSpacer {
       this.timeToSpacerMap[i] = spacerObj.availableValue;
       const spacerId = spacerObj.availableValue;
       if (i == task.start) {
-        this.spacerIdToElementArray[spacerId].innerHTML = '';
+        this.spacerIdToElementArray[spacerId].removeChild(this.spacerIdToElementArray[spacerId].firstChild);
         this.spacerIdToElementArray[spacerId].setAttribute('rowspan', '1');
       } else {
         this.spacerIdToElementArray[spacerId].style.display = '';
@@ -115,11 +116,16 @@ export default class TimetableSpacer {
   }
 
   _initSpacers() {
+    const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+
     for (let i = 0.0 + this.hourStart; i < this.hourEnd; i += 0.25) {
       const rowElement = document.createElement('tr');
       const spaceElement = document.createElement('td');
       rowElement.style.height = this.unitHeight;
       spaceElement.setAttribute('class', 'dragtimetable-spacer');
+      if (isFirefox) {
+        spaceElement.style.height = '100%';
+      }
       this.spacerIdToElementArray.push(spaceElement);
       this.timeToSpacerMap[i] = this.spacerIdToElementArray.length - 1;
       this.spacerToTimeMap[this.spacerIdToElementArray.length - 1] = i;

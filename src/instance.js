@@ -20,8 +20,8 @@ export default class TimetableInstance {
   }
 
   removeTask(taskId) {
-    this.contextObj.tasks[taskId] = undefined;
     this.contextObj.spacer.removeFromTable(this.contextObj.tasks[taskId]);
+    this.contextObj.tasks[taskId] = undefined;
   }
 
   onTaskTimeUpdate(taskId, startTime, endTime) {
