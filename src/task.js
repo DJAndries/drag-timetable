@@ -35,7 +35,7 @@ export default class TimetableTask {
 
   getTimeElement() {
     const timeElement = document.createElement('div');
-    timeElement.innerHTML = '&#x23f0; ' + TimetableUtil.getHourText(this.start) + ' - ' + TimetableUtil.getHourText(this.end);
+    timeElement.innerHTML = '&#x1f550; ' + TimetableUtil.getHourText(this.start) + ' - ' + TimetableUtil.getHourText(this.end);
     timeElement.style.position = 'absolute';
     timeElement.style.bottom = '0px';
     timeElement.style.paddingBottom = '3px';

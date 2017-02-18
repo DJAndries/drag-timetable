@@ -11,8 +11,9 @@ class TimetableDraggable {
 
   onTouchStart(ev) {
     this.isDragging = true;
-    this.startOffsetX = ev.offsetX;
-    this.startOffsetY = ev.offsetY;
+    const boundingRect = ev.currentTarget.getBoundingClientRect();
+    this.startOffsetX = ev.clientX - boundingRect.left;
+    this.startOffsetY = ev.clientY - boundingRect.top;
     this.currentGhostElement = this.element.cloneNode(true);
     this.currentGhostElement.style.position = 'absolute';
     this.currentGhostElement.style.left = (ev.pageX - this.startOffsetX) + "px";
@@ -28,7 +29,7 @@ class TimetableDraggable {
     if (this.isDragging) {
       this.isDragging = false;
       if (this.currentGhostElement) {
-        this.currentGhostElement.remove();
+        this.currentGhostElement.outerHTML = '';
         this.currentGhostElement = null;
       }
       this.dragManager.spacer.moveEnd(this.taskId);
@@ -41,7 +42,7 @@ class TimetableDraggable {
         this.currentGhostElement.style.left = (ev.pageX - this.startOffsetX) + "px";
         this.currentGhostElement.style.top = (ev.pageY - this.startOffsetY) + "px";
       }
-      this.dragManager.spacer.moveUpdate(ev.pageY - this.startOffsetY - window.scrollY, this.taskId);
+      this.dragManager.spacer.moveUpdate(ev.pageY - this.startOffsetY - document.documentElement.scrollTop, this.taskId);
     }
   }
 }

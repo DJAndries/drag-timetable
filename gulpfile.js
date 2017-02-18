@@ -9,7 +9,8 @@ var babel = require('gulp-babel');
 gulp.task('bundle', function() {
   return gulp.src('src/**/*.js')
     .pipe(babel({
-      presets: ['es2015']
+      presets: ['es2015'],
+      plugins: ['transform-runtime']
     }))
     .pipe(gulp.dest("dist"));
 });
