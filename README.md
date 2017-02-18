@@ -47,13 +47,18 @@ var options = {
   taskAreaSize: '150px', // width of the task column
   quarterHourAreaSize: '17px', // height of a 15 minute segment
   hourStart = 8, // starting time of timetable, 0 to 23
-  hourEnd = 16 // ending time of timetable, 0 to 23
+  hourEnd = 16, // ending time of timetable, 0 to 23
+  clickThreshold = 200, // max. time in ms between mousedown and mouseup for click event
 };
 ```
 
 #### `dragcontext.setMoveCallback(moveCallback)`
 
 Sets the callback which is invoked whenever a task is moved. The updated task object will be passed into the callback.
+
+#### `dragcontext.setClickCallback(clickCallback)`
+
+Sets the callback which is invoked whenever a task is clicked. The updated task object will be passed into the callback.
 
 #### `dragcontext.addTask(task, isAddingToTimetable)`
 
