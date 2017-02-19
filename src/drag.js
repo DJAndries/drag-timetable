@@ -46,7 +46,8 @@ class TimetableDraggable {
         this.currentGhostElement.style.left = (ev.pageX - this.startOffsetX) + "px";
         this.currentGhostElement.style.top = (ev.pageY - this.startOffsetY) + "px";
       }
-      this.dragManager.spacer.moveUpdate(ev.pageY - this.startOffsetY - document.documentElement.scrollTop, this.taskId);
+      const scrollOffset = window.pageYOffset || document.documentElement.scrollTop;
+      this.dragManager.spacer.moveUpdate(ev.pageY - this.startOffsetY - scrollOffset, this.taskId);
     }
   }
 }
