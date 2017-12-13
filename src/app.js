@@ -16,25 +16,25 @@ class DragTimetable {
 
     // 0 to 23
     optionsObj.hourStart = 8;
-    if (options.hourStart) {
+    if (options.hourStart !== undefined) {
       optionsObj.hourStart = options.hourStart;
     }
 
     // 0 to 23
     optionsObj.hourEnd = 16;
-    if (options.hourEnd) {
+    if (options.hourEnd !== undefined) {
       optionsObj.hourEnd = options.hourEnd;
     }
 
     // 0 to 6
     optionsObj.dayStart = 1;
-    if (options.dayStart) {
+    if (options.dayStart !== undefined) {
       optionsObj.dayStart = options.dayStart;
     }
 
     // 0 to 6
     optionsObj.dayEnd = 5
-    if (options.dayEnd) {
+    if (options.dayEnd !== undefined) {
       optionsObj.dayEnd = options.dayEnd;
     }
 
